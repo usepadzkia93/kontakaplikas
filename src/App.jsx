@@ -49,53 +49,54 @@ function App() {
           </h1>
         </header>
 
-        <main className="flex flex-col-reverse flex-1 w-full gap-8 px-4 lg:flex-row-reverse">
+        <main className="flex flex-col-reverse w-full gap-8 px-4 lg:flex-row-reverse">
           <div className="basis-1/2">
             <h2 className="mb-4 text-4xl font-bold text-center text-white">
               DAFTAR KONTAK
             </h2>
-          <section className="flex items-center justify-center ">
-            
-            <div className=" p-4 text-white rounded-lg bg-gray-400/70 max-h-[60vh] overflow-auto w-lg">
-              {contacts.length === 0 ? (
-                <p className="text-center text-white">Belum ada kontak yang ditambahkan</p>
-              ) : (
-                <ul>
-                  {contacts.map((contact, index) => (
-                    <li key={index} className="pb-2 mb-2 border-b">
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <p className="text-lg font-semibold text-white text-start">
-                            {contact.name}
-                          </p>
-                          <p className="text-sm text-gray-200 text-start">
-                            {contact.number}
-                          </p>
+            <section className="flex items-center justify-center ">
+              <div className=" p-4 text-white rounded-lg bg-gray-400/70 max-h-[60vh] overflow-auto w-lg">
+                {contacts.length === 0 ? (
+                  <p className="text-center text-white">
+                    Belum ada kontak yang ditambahkan
+                  </p>
+                ) : (
+                  <ul>
+                    {contacts.map((contact, index) => (
+                      <li key={index} className="pb-2 mb-2 border-b">
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <p className="text-lg font-semibold text-white text-start">
+                              {contact.name}
+                            </p>
+                            <p className="text-sm text-gray-200 text-start">
+                              {contact.number}
+                            </p>
+                          </div>
+                          <button
+                            onClick={() => handleDelete(index)}
+                            className="px-2 py-1 font-bold text-black bg-white rounded-lg hover:bg-gray-300"
+                          >
+                            Hapus
+                          </button>
                         </div>
-                        <button
-                          onClick={() => handleDelete(index)}
-                          className="px-2 py-1 font-bold text-black bg-white rounded-lg hover:bg-gray-300"
-                        >
-                          Hapus
-                        </button>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              )}
+                      </li>
+                    ))}
+                  </ul>
+                )}
 
-              {contacts.length > 0 && (
-                <div className="flex justify-center">
-                  <button
-                    onClick={handleDeleteAll}
-                    className="px-2 py-2 font-bold text-black bg-white rounded-lg hover:bg-gray-300"
-                  >
-                    Hapus Semua
-                  </button>
-                </div>
-              )}
-            </div>
-          </section>
+                {contacts.length > 0 && (
+                  <div className="flex justify-center">
+                    <button
+                      onClick={handleDeleteAll}
+                      className="px-2 py-2 font-bold text-black bg-white rounded-lg hover:bg-gray-300"
+                    >
+                      Hapus Semua
+                    </button>
+                  </div>
+                )}
+              </div>
+            </section>
           </div>
           <section className="flex items-center justify-center basis-1/2">
             <section className="w-full max-w-md p-6 text-white rounded-2xl bg-gray-400/70">
